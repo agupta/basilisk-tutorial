@@ -9,15 +9,16 @@ event init (t = 0) {
 
 event graphs (i++) {
   stats s = statsf (h);
+  // write min and max to stderr for each t
   fprintf (stderr, "%g %g %g\n", t, s.min, s.max);
 }
-
 
 event images (t += 4./300.) {
   output_ppm(h, linear=true);
   scalar l[];
   foreach()
     l[] = level;
+  // output grid to grid.ppm
   static FILE * fp = fopen ("grid.ppm", "w");
   output_ppm (l, fp, min = 0, max = 8);
 }
