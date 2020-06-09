@@ -50,3 +50,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# ppm output files
+*.ppm
+
+# log files
+*.log
